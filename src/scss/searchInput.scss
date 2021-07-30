@@ -1,0 +1,23 @@
+.search {
+    background-color: $black;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    &__input {
+        display: block;
+        border-radius: 2rem;
+        border: none;
+        width: 100%;
+        padding: 1rem;
+        background-color: $gray;
+        color: $white;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: $white-light;
+        }
+    }
+}
