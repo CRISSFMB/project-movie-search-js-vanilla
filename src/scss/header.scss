@@ -1,0 +1,45 @@
+header {
+    color: $white;
+}
+
+.navbar {
+    background-color: $black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    min-height: 10vh;
+    align-items: center;
+    @include tablet {
+        min-height: 15vh;
+    }
+    &__img {
+        width: 9rem;
+    }
+}
+
+.hero {
+    background-image: linear-gradient( to right, rgba(26, 42, 108, 0.372), rgba(178, 31, 31, 0.55), rgba(171, 139, 69, 0.749)), url("../../dist/images/hero.jpg");
+    height: calc(100vh - 10vh);
+    @include tablet {
+        height: calc(100vh - 15vh);
+    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        height: 100%;
+        &__title {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            color: $blue-light;
+        }
+        &__description {
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
+    }
+}
