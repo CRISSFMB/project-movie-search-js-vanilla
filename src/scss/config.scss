@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 65.2%;
+}
+
+*,
+*:after,
+*::before {
+    box-sizing: inherit;
+}
+
+
+/* body */
+
+body {
+    font-size: 1.6rem;
+    background-color: rgba(84, 51, 168, 0.782);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    //   font-family: 'Lato', sans-serif;
+}
+
+
+/******************************************Global Styles**********************************/
+
+.text-center {
+    text-align: center;
+}
+
+p {
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90vw;
+    margin: 0 auto;
+    //   overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
