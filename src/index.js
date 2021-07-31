@@ -1,10 +1,17 @@
+/*STYLES CSS*/
 import "./scss/styles.scss";
-const container = document.querySelector(".card-wrapper");
+/*---------*/
+
+/*TEMPLATE AND FRAGMENT */
 const fragment = document.createDocumentFragment();
 const template = document.querySelector("#template-card").content;
 
+const container = document.querySelector(".card-wrapper");
+
 function getApi() {
-    const URI = `https://api.themoviedb.org/3/search/movie?api_key=b9ddfc9d41f7d2d3fc81bd6280d7db38&language=en-US&query=dark&include_adult=false`;
+    const URL = "https://api.themoviedb.org/3";
+    const key = "b9ddfc9d41f7d2d3fc81bd6280d7db38";
+    const URI = `${URL}/search/movie?api_key=${key}&language=en-US&query=dark&include_adult=false`;
 
     fetch(URI)
         .then((res) => {
@@ -34,7 +41,7 @@ function setHtml(data) {
         ).src = `https://image.tmdb.org/t/p/w500${img}`;
         template.querySelector(".card__img").alt = title;
         template.querySelector(".card__title").textContent = title;
-        template.querySelector(".card__rating").textContent = rating;
+        template.querySelector(".card__text").textContent = rating;
         const clone = document.importNode(template, true);
 
         fragment.appendChild(clone);
