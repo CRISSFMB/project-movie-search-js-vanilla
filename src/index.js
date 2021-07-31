@@ -2,6 +2,8 @@
 import "./scss/styles.scss";
 /*---------*/
 
+import Swal from "sweetalert2";
+
 /*TEMPLATE AND FRAGMENT */
 const fragment = document.createDocumentFragment();
 const template = document.querySelector("#template-card").content;
@@ -12,7 +14,7 @@ const inputSearch = document.querySelector("#Search");
 /*EventsListeners*/
 
 window.onload = () => {
-    document.addEventListener("change", validationInput);
+    document.addEventListener("submit", validationInput);
 };
 
 /*variables*/
@@ -25,10 +27,17 @@ function validationInput(e) {
     const valueInput = inputSearch.value;
 
     if (!valueInput) {
-        console.log(`you dont search anything`);
+        Swal.fire({
+            icon: "error",
+            title: "dont can be empty.",
+        });
+
         return;
     } else if (valueInput.length < 2) {
-        console.log(`you search ${valueInput} is to short  `);
+        Swal.fire({
+            icon: "error",
+            title: "To short.",
+        });
 
         return;
     }
