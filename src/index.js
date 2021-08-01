@@ -1,8 +1,10 @@
 /*STYLES CSS*/
 import "./scss/styles.scss";
 /*---------*/
-
+/*sweet alert*/
 import Swal from "sweetalert2";
+
+/*-----*/
 
 /*TEMPLATE AND FRAGMENT */
 const fragment = document.createDocumentFragment();
@@ -10,14 +12,14 @@ const template = document.querySelector("#template-card").content;
 /* Selects  */
 const container = document.querySelector(".card-wrapper");
 const inputSearch = document.querySelector("#Search");
+const containerSpinner = document.querySelector("#spinner");
 
 /*EventsListeners*/
 
 window.onload = () => {
     document.addEventListener("submit", validationInput);
+    getApi("dark");
 };
-
-/*variables*/
 
 /*Validation*/
 
@@ -29,7 +31,7 @@ function validationInput(e) {
     if (!valueInput) {
         Swal.fire({
             icon: "error",
-            title: "dont can be empty.",
+            title: "Please Search Something.",
         });
 
         return;
@@ -43,6 +45,7 @@ function validationInput(e) {
     }
 
     getApi(valueInput);
+    passValues(valueInput);
 }
 
 /*API*/
@@ -81,6 +84,7 @@ function setHtml(data) {
         template.querySelector(".card__img").alt = title;
         template.querySelector(".card__title").textContent = title;
         template.querySelector(".card__text").textContent = rating;
+
         const clone = document.importNode(template, true);
 
         fragment.appendChild(clone);
@@ -95,4 +99,20 @@ function cleanHTML() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+}
+
+/*Spinner Show*/
+
+function showSpinner() {
+    const spinnerDiv = document.querySelector("div");
+    spinnerDiv.classList.add("sk-chase");
+
+    spinnerDiv.innerHTML = `<div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>`;
+
+    containerSpinner.appendChild(spinnerDiv);
 }

@@ -12,6 +12,7 @@
         "build": "webpack --mode production"
     },
     "dependencies": {
+        "dotenv": "^10.0.0",
         "sweetalert2": "^11.1.0"
     },
     "devDependencies": {
